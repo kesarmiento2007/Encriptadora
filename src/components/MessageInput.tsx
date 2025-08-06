@@ -24,10 +24,10 @@ export default function MessageInput() {
 
   return (
     <div className="my-7">
-      <h2 className="text-2xl font-bold mb-6">Mensaje de Entrada</h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-5">Mensaje de Entrada</h2>
 
       <textarea
-        className="w-full h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
+        className="w-full h-30 md:h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
         placeholder="Ingresa tu mensaje aquí"
         id="input"
         value={inputValue}

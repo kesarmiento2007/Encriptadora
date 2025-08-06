@@ -17,17 +17,17 @@ export default function MessageOutput() {
 
   return (
     <div className="my-7">
-      <h2 className="text-2xl font-bold mb-6">Mensaje Procesado</h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-5">Mensaje Procesado</h2>
 
       <textarea
-        className="w-full h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
+        className="w-full h-30 md:h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
         value={mensajeProcesado}
         placeholder="El mensaje procesado aparecerá aquí"
         id="output"
         readOnly
       />
 
-      <div className="relative mb-12">
+      <div className="relative mb-10 md:mb-12">
         <button 
           className={`w-5.5 rounded-xs transition-colors bg-gray-400 hover:bg-gray-300 absolute right-2 cursor-pointer ${mensajeProcesado && !copied ? "opacity-100" : "opacity-0"}`}
           onClick={handleClick}

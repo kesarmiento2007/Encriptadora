@@ -8,7 +8,7 @@ function App() {
     <>
       <div className="max-w-7xl w-11/12 mx-auto">
 
-        <h1 className="text-center text-3xl font-bold py-6">Encriptador de Mensajes</h1>
+        <h1 className="text-center text-2xl md:text-3xl font-bold pt-6 pb-3">Encriptador de Mensajes</h1>
 
         <MessageOutput />
         <MessageInput />

@@ -1,6 +1,6 @@
 import { teclas, clave } from '../data/constantes';
 
-export function residuoClave() : number {
+function residuoClave() : number {
     return (teclas.length - 1) % clave;  // Devuelve el residuo de la división entre el número de teclas y la clave (que es el modulo)
 }
 
