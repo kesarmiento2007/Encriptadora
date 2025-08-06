@@ -20,7 +20,7 @@ export default function MessageOutput() {
       <h2 className="text-xl sm:text-2xl font-bold mb-5">Mensaje Procesado</h2>
 
       <textarea
-        className="w-full h-30 sm:h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-sm sm:text-lg bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
+        className="w-full h-30 sm:h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg sm:text-xl bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
         value={mensajeProcesado}
         placeholder="El mensaje procesado aparecerá aquí"
         id="output"

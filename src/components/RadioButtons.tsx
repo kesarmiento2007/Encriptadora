@@ -26,7 +26,7 @@ export default function RadioButtons() {
               className="opacity-0 absolute"
               onChange={handleChange}
             />
-            <span className="text-sm sm:text-xl">Desencriptar</span>
+            <span className="text-lg sm:text-xl">Desencriptar</span>
           </label>
 
           <label 
@@ -41,7 +41,7 @@ export default function RadioButtons() {
                 defaultChecked
                 onChange={handleChange}
               />
-              <span className="text-sm sm:text-xl">Encriptar</span>
+              <span className="text-lg sm:text-xl">Encriptar</span>
 
           </label>
         </div>
