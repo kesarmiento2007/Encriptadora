@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: #D1D5DB #0F172A;
+}

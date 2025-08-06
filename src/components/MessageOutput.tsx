@@ -1,0 +1,49 @@
+import { useEffect, useState } from "react";
+import { useEncriptador } from "../hooks/useEncriptador"
+
+export default function MessageOutput() {
+
+  const { mensajeProcesado } = useEncriptador();
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    setCopied(false);
+  }, [mensajeProcesado]);
+
+  const handleClick = () => {
+    navigator.clipboard.writeText(mensajeProcesado);
+    setCopied(true);
+  }
+
+  return (
+    <div className="my-7">
+      <h2 className="text-2xl font-bold mb-6">Mensaje Procesado</h2>
+
+      <textarea
+        className="w-full h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
+        value={mensajeProcesado}
+        placeholder="El mensaje procesado aparecerá aquí"
+        id="output"
+        readOnly
+      />
+
+      <div className="relative mb-12">
+        <button 
+          className={`w-5.5 rounded-xs transition-colors bg-gray-400 hover:bg-gray-300 absolute right-2 cursor-pointer ${mensajeProcesado && !copied ? "opacity-100" : "opacity-0"}`}
+          onClick={handleClick}
+        >
+          <img 
+            src="copy.svg" 
+            alt="copiarBtn" 
+          />
+        </button>
+
+        <img 
+            src="checkmark-circle.svg"
+            alt="check" 
+            className={`w-5.5 rounded-xl bg-green-400 absolute right-2 ${copied ? "block" : "hidden"}`}
+        />
+      </div>
+    </div>
+  )
+}
