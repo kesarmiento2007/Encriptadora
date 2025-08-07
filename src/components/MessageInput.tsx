@@ -23,28 +23,30 @@ export default function MessageInput() {
   }
 
   return (
-    <div className="my-7">
-      <h2 className="text-xl sm:text-2xl font-bold mb-5">Mensaje de Entrada</h2>
+    <div className="my-6 sm:my-7">
+      <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-5">Mensaje de Entrada</h2>
 
       <textarea
-        className="w-full h-30 sm:h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg sm:text-xl bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
+        className="w-full h-30 sm:h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg sm:text-xl bg-gray-900 border-2 focus:outline-none focus:border-slate-500 resize-none"
         placeholder="Ingresa tu mensaje aquí"
         id="input"
         value={inputValue}
         onChange={handleChange}
       />
 
-      <div className="relative">
-        <button 
-          className={`w-5 sm:5.5 rounded-xl transition-colors bg-gray-500 hover:bg-gray-400 absolute right-1.5 -top-30.5 sm:-top-40.5 cursor-pointer ${inputValue ? "block" : "hidden"}`}
-          onClick={handleClick}
-        >
-          <img 
-            src="close.svg" 
-            alt="cerrarBtn" 
-          />
-        </button>
-      </div>
+      {inputValue && (
+        <div className="relative">
+          <button 
+            className="w-5 sm:5.5 rounded-xl transition-colors bg-gray-500 hover:bg-gray-400 absolute right-1.5 -top-30.5 sm:-top-40.5 cursor-pointer"
+            onClick={handleClick}
+          >
+            <img 
+              src="close.svg" 
+              alt="cerrarBtn" 
+            />
+          </button>
+        </div>
+      )}
     </div>
   )
 }

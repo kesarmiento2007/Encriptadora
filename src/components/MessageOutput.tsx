@@ -16,11 +16,11 @@ export default function MessageOutput() {
   }
 
   return (
-    <div className="my-7">
-      <h2 className="text-xl sm:text-2xl font-bold mb-5">Mensaje Procesado</h2>
+    <div className="my-6 sm:my-7">
+      <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-5">Mensaje Procesado</h2>
 
       <textarea
-        className="w-full h-30 sm:h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg sm:text-xl bg-gray-900 border-2 focus:outline-none focus:border-slate-500"
+        className="w-full h-30 sm:h-40 p-4 border-slate-700 rounded-2xl text-gray-50 text-lg sm:text-xl bg-gray-900 border-2 focus:outline-none resize-none"
         value={mensajeProcesado}
         placeholder="El mensaje procesado aparecerá aquí"
         id="output"
@@ -28,21 +28,25 @@ export default function MessageOutput() {
       />
 
       <div className="relative mb-10 sm:mb-12">
-        <button 
-          className={`w-5 sm:w-5.5 rounded-xs transition-colors bg-gray-400 hover:bg-gray-300 absolute right-2 cursor-pointer ${mensajeProcesado && !copied ? "opacity-100" : "opacity-0"}`}
-          onClick={handleClick}
-        >
-          <img 
-            src="copy.svg" 
-            alt="copiarBtn" 
-          />
-        </button>
+        {mensajeProcesado && !copied && (
+          <button 
+            className="w-5 sm:w-5.5 rounded-xs transition-colors bg-gray-400 hover:bg-gray-300 absolute right-2 cursor-pointer"
+            onClick={handleClick}
+          >
+            <img 
+              src="copy.svg" 
+              alt="copiarBtn" 
+            />
+          </button>
+        )}
 
-        <img 
-            src="checkmark-circle.svg"
-            alt="check" 
-            className={`w-5 sm:5.5 rounded-xl bg-green-400 absolute right-2 ${copied ? "block" : "hidden"}`}
-        />
+        {copied && (
+          <img 
+              src="checkmark-circle.svg"
+              alt="check" 
+              className="w-5 sm:5.5 rounded-xl bg-green-400 absolute right-2"
+          />
+        )}
       </div>
     </div>
   )

@@ -9,8 +9,8 @@ export default function RadioButtons() {
   };
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl sm:text-2xl font-bold mb-5">Acción</h2>
+    <div className="mt-7 sm:mt-8">
+      <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-5">Acción</h2>
 
       <form>
         <div className="flex gap-3 bg-gray-900 p-2 rounded-2xl">
