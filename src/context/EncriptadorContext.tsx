@@ -1,13 +1,13 @@
 import { useState, createContext } from "react";
 import { cifrarMensaje, decifrarMensaje } from "../services/CodeService";
+import type { Encriptar, MensajeProcesado, InputValue } from "../types";
 
 type EncriptadorContextProps = {
-  encriptar: boolean,
+  encriptar: Encriptar,
   setEncriptar: React.Dispatch<React.SetStateAction<boolean>>,
-  mensajeProcesado: string,
+  mensajeProcesado: MensajeProcesado,
   setMensajeProcesado: React.Dispatch<React.SetStateAction<string>>,
-  cifrarMensaje: (mensaje: string) => string,
-  decifrarMensaje: (mensaje: string) => string
+  procesarMensaje: (value : InputValue) => void
 }
 
 type EncriptadorProviderProps = {
@@ -21,6 +21,10 @@ export const EncriptadorProvider = ({ children } : EncriptadorProviderProps) => 
   const [encriptar, setEncriptar] = useState(true);
   const [mensajeProcesado, setMensajeProcesado] = useState("");
 
+  const procesarMensaje = (value : InputValue) => {
+    setMensajeProcesado( encriptar ? cifrarMensaje(value) : decifrarMensaje(value) );
+  }
+
   return (
     <EncriptadorContext.Provider 
         value={{
@@ -28,8 +32,7 @@ export const EncriptadorProvider = ({ children } : EncriptadorProviderProps) => 
             setEncriptar,
             mensajeProcesado,
             setMensajeProcesado,
-            cifrarMensaje,
-            decifrarMensaje
+            procesarMensaje
         }}
     >
       {children}

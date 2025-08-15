@@ -1,10 +1,11 @@
 import { teclas, clave } from '../data/constantes';
+import type { InputValue, MensajeProcesado } from '../types';
 
 function residuoClave() : number {
     return (teclas.length - 1) % clave;  // Devuelve el residuo de la división entre el número de teclas y la clave (que es el modulo)
 }
 
-export function cifrarMensaje(mensaje: string) : string {
+export function cifrarMensaje(mensaje : InputValue) : MensajeProcesado {
 
     let mensajeCifrado = [];
 
@@ -15,7 +16,7 @@ export function cifrarMensaje(mensaje: string) : string {
     return mensajeCifrado.join('');
 }
 
-export function decifrarMensaje(mensaje: string) : string {
+export function decifrarMensaje(mensaje : InputValue) : MensajeProcesado {
 
     let mensajeDecifrado = [];
 

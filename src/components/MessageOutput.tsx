@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useEncriptador } from "../hooks/useEncriptador"
+import type { Copied } from "../types";
 
 export default function MessageOutput() {
 
   const { mensajeProcesado } = useEncriptador();
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<Copied>(false);
 
   useEffect(() => {
     setCopied(false);

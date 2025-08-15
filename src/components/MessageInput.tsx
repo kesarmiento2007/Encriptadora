@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { useEncriptador } from "../hooks/useEncriptador";
+import type { InputValue } from "../types";
 
 export default function MessageInput() {
 
-  const { encriptar, setMensajeProcesado, cifrarMensaje, decifrarMensaje } = useEncriptador();
-  const [inputValue, setInputValue] = useState<string>("");
+  const { encriptar, setMensajeProcesado, procesarMensaje } = useEncriptador();
+  const [inputValue, setInputValue] = useState<InputValue>("");
 
   useEffect(() => {
-    encriptar ? setMensajeProcesado(cifrarMensaje(inputValue)) : setMensajeProcesado(decifrarMensaje(inputValue));
+    procesarMensaje( inputValue.trim() );
   }, [encriptar]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.target.value);
     const value = e.target.value.trim();
 
-    encriptar ? setMensajeProcesado(cifrarMensaje(value)) : setMensajeProcesado(decifrarMensaje(value));
+    procesarMensaje( value );
   };
 
   const handleClick = () => {
